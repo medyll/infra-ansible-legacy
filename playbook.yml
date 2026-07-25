@@ -1,0 +1,10 @@
+
+- name: Common debian install
+  hosts: all
+  tasks:
+    - set_fact: START_TIME="{{ lookup('pipe','date \"+%Y-%m-%d %H:%M:%S\"') }}"
+    - set_fact: date_release="{{lookup('pipe','date +%Y%m%d%H%M%S')}}"
+  become: yes
+  become_method: sudo
+  roles:
+    - common

@@ -1,0 +1,48 @@
+---
+# tasks file for common
+
+
+# apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+# echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php7.list
+
+- name: Add an apt key by id from a keyserver
+  apt_key:
+    url: https://packages.sury.org/php/apt.gpg 
+    keyring: /etc/apt/trusted.gpg.d/php.gpg
+
+- apt_repository:
+    repo: deb https://packages.sury.org/php/ buster main
+    state: present
+    filename: php7
+
+- name: Add an apt key by id from a keyserver
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 93C4A3FD7BB9C367
+
+- name: Install basic softwares
+  apt:
+    name:
+      - software-properties-common 
+      - python3-pip 
+      - curl 
+      - wget 
+      - gnupg2 
+      - ca-certificates 
+      - sshpass
+      - lsb-release 
+      - apt-transport-https 
+      - git 
+      - locate 
+      - ssh 
+      - keychain 
+      - yarn 
+      - nodejs  
+      - pkg-config 
+      - libyaml-dev 
+      - tree
+      - dirmngr
+      - vim
+    state: latest
+    update_cache: yes
+    autoclean: yes

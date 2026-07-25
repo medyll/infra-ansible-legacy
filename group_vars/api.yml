@@ -1,0 +1,4 @@
+---
+api[dev].debug_var: dev
+api[preprod].debug_var: preprod
+api[prod].debug_var: prod

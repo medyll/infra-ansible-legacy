@@ -1,0 +1,13 @@
+
+dev:
+  http_port: 985
+  server.dev:
+    http_port: 985
+
+preprod:
+  nginx_preprod:
+    http_port: 80 
+  mysql_preprod:
+    http_port: 303 
+  redis_preprod:
+    http_port: 303 

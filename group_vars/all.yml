@@ -1,0 +1,7 @@
+
+env: dev
+# Secrets removed for public/portfolio use.
+# Use ansible-vault to store real credentials, e.g.:
+#   ansible-vault encrypt_string 'yourpassword' --name 'ansible_ssh_pass'
+ansible_ssh_pass: "{{ vault_ansible_ssh_pass }}"
+ansible_become_pass: "{{ vault_ansible_become_pass }}"
